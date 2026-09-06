@@ -5,14 +5,13 @@ import type {
   SyncLocalStoreMode,
   SyncLocalTransaction,
 } from "@absolutejs/sync/client";
-import { expoSyncRandomId } from "./crypto";
-
 export type ExpoSyncBridgeHostOptions = {
   store: SyncLocalStore;
   namespace: string;
   /** Maximum time one WebView may hold an atomic transaction. Defaults to 8s. */
   transactionTimeoutMs?: number;
-  createId?: () => string;
+  /** Native random identifier source, normally `expoSyncRandomId`. */
+  createId: () => string;
 };
 
 export type ExpoSyncSocketBridgeEvent = {
@@ -102,7 +101,7 @@ export const createExpoSyncBridgeHost = ({
   store,
   namespace,
   transactionTimeoutMs = 8_000,
-  createId = expoSyncRandomId,
+  createId,
 }: ExpoSyncBridgeHostOptions) => {
   if (!namespace || namespace.length > 512)
     throw new TypeError("Expo Sync bridge namespace is invalid.");

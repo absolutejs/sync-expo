@@ -1,6 +1,6 @@
 {
   "name": "@absolutejs/sync-expo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Expo SQLite, lifecycle, protection, and background-task adapter for @absolutejs/sync",
   "repository": {
     "type": "git",

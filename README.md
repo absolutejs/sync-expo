@@ -16,7 +16,8 @@ functions without AbsoluteJS.
 
 The `@absolutejs/sync-expo/client` and `@absolutejs/sync-expo/bridge` subpaths
 remain free of Expo and React Native runtime imports for WebViews and bridge
-contract tests.
+contract tests. Native bridge hosts inject `expoSyncRandomId`; WebView socket
+identities use the browser Crypto API.
 
 Background execution is an acceleration only. Foreground startup, resume, and
 connectivity recovery remain authoritative because Android and iOS decide when

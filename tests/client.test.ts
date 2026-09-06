@@ -12,6 +12,7 @@ import {
 
 test("WebView proxy preserves native-owned atomicity for one authenticated principal", async () => {
   const host = createExpoSyncBridgeHost({
+    createId: () => "client-transaction",
     namespace: "principal-a",
     store: createMemorySyncLocalStore(),
   });

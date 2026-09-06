@@ -7,7 +7,6 @@ import type {
   SyncLocalStoreSchemaStatus,
   SyncLocalTransaction,
 } from "@absolutejs/sync/client";
-import { expoSyncRandomId } from "./crypto";
 import {
   resolveSyncLocalDataPolicy,
   resolveSyncLocalMutationPolicy,
@@ -153,6 +152,15 @@ type PendingMessage = {
   timer: ReturnType<typeof setTimeout>;
 };
 
+const browserRandomId = () => {
+  if (!globalThis.crypto?.randomUUID)
+    throw new Error(
+      "Expo Sync's WebView bridge requires the browser Crypto API.",
+    );
+
+  return globalThis.crypto.randomUUID();
+};
+
 /**
  * Browser-compatible string WebSocket facade backed by the native socket host.
  * Default JSON Sync frames are supported; binary serializers fail explicitly.
@@ -181,7 +189,7 @@ export const createExpoSyncBridgeWebSocket = (
     readonly protocol = "";
     readyState = ExpoBridgeWebSocket.CONNECTING;
     readonly url: string;
-    readonly #socketId = `websocket_${expoSyncRandomId()}`;
+    readonly #socketId = `websocket_${browserRandomId()}`;
     readonly #messages = new Map<string, PendingMessage>();
     readonly #remove: () => void;
     #sendSequence = 0;
