@@ -5,6 +5,7 @@ import type {
   SyncLocalStoreMode,
   SyncLocalTransaction,
 } from "@absolutejs/sync/client";
+import { expoSyncRandomId } from "./crypto";
 
 export type ExpoSyncBridgeHostOptions = {
   store: SyncLocalStore;
@@ -101,7 +102,7 @@ export const createExpoSyncBridgeHost = ({
   store,
   namespace,
   transactionTimeoutMs = 8_000,
-  createId = () => crypto.randomUUID(),
+  createId = expoSyncRandomId,
 }: ExpoSyncBridgeHostOptions) => {
   if (!namespace || namespace.length > 512)
     throw new TypeError("Expo Sync bridge namespace is invalid.");

@@ -7,6 +7,7 @@ import type {
   SyncLocalStoreSchemaStatus,
   SyncLocalTransaction,
 } from "@absolutejs/sync/client";
+import { expoSyncRandomId } from "./crypto";
 import {
   resolveSyncLocalDataPolicy,
   resolveSyncLocalMutationPolicy,
@@ -180,7 +181,7 @@ export const createExpoSyncBridgeWebSocket = (
     readonly protocol = "";
     readyState = ExpoBridgeWebSocket.CONNECTING;
     readonly url: string;
-    readonly #socketId = `websocket_${crypto.randomUUID()}`;
+    readonly #socketId = `websocket_${expoSyncRandomId()}`;
     readonly #messages = new Map<string, PendingMessage>();
     readonly #remove: () => void;
     #sendSequence = 0;

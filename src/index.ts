@@ -4,15 +4,16 @@ import type {
   SyncLocalRecordProtector,
 } from "@absolutejs/sync/client";
 import { gcm } from "@noble/ciphers/aes.js";
-import { randomBytes } from "@noble/ciphers/utils.js";
 import * as BackgroundTask from "expo-background-task";
 import * as Network from "expo-network";
 import * as SecureStore from "expo-secure-store";
 import * as TaskManager from "expo-task-manager";
 import { AppState } from "react-native";
+import { expoSyncRandomBytes } from "./crypto";
 
 export * from "./store";
 export * from "./bridge";
+export { expoSyncRandomId } from "./crypto";
 
 const textEncoder = new TextEncoder();
 const textDecoder = new TextDecoder();
@@ -98,7 +99,7 @@ export const createExpoSyncProtection = (
           secureStoreOptions,
         );
         if (existing) return unbase64(existing);
-        const created = randomBytes(32);
+        const created = expoSyncRandomBytes(32);
         await storage.setItemAsync(
           keyName,
           base64(created),
@@ -137,7 +138,7 @@ export const createExpoSyncProtection = (
           );
         },
         seal: (value, context) => {
-          const nonce = randomBytes(12);
+          const nonce = expoSyncRandomBytes(12);
           const encrypted = gcm(key, nonce, additionalData(context)).encrypt(
             textEncoder.encode(value),
           );

@@ -1,6 +1,6 @@
 {
   "name": "@absolutejs/sync-expo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Expo SQLite, lifecycle, protection, and background-task adapter for @absolutejs/sync",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rm -rf dist && bun build src/index.ts src/client.ts src/bridge.ts --outdir dist --sourcemap --target=browser --external @absolutejs/sync --external expo-background-task --external expo-network --external expo-secure-store --external expo-sqlite --external expo-task-manager --external react-native && tsc --project tsconfig.build.json",
+    "build": "rm -rf dist && bun build src/index.ts src/client.ts src/bridge.ts --outdir dist --sourcemap --target=browser --external @absolutejs/sync --external @noble/ciphers --external expo-background-task --external expo-crypto --external expo-network --external expo-secure-store --external expo-sqlite --external expo-task-manager --external react-native && tsc --project tsconfig.build.json",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"./**/*.{ts,json,md}\"",
@@ -51,6 +51,7 @@
   "peerDependencies": {
     "@absolutejs/sync": ">=2.31.0 <3",
     "expo-background-task": ">=57 <58",
+    "expo-crypto": ">=57 <58",
     "expo-network": ">=57 <58",
     "expo-secure-store": ">=57 <58",
     "expo-sqlite": ">=57 <58",
@@ -63,6 +64,7 @@
     "@types/react": "19.2.2",
     "expo": "57.0.9",
     "expo-background-task": "57.0.14",
+    "expo-crypto": "57.0.2",
     "expo-network": "57.0.1",
     "expo-secure-store": "57.0.2",
     "expo-sqlite": "57.0.2",

@@ -9,6 +9,11 @@ mock.module("react-native", () => ({
 mock.module("expo-network", () => ({
   addNetworkStateListener: () => ({ remove: () => undefined }),
 }));
+mock.module("expo-crypto", () => ({
+  getRandomBytes: (length: number) =>
+    crypto.getRandomValues(new Uint8Array(length)),
+  randomUUID: () => crypto.randomUUID(),
+}));
 mock.module("expo-secure-store", () => ({
   AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY: 1,
   deleteItemAsync: async () => undefined,
