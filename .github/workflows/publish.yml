@@ -5,7 +5,8 @@
 #
 # There is no npm token. npm trusts this exact repository, workflow file and
 # the `npm-publish` environment, which only main can deploy to, and each run
-# mints a credential that lasts minutes. The build job installs dependencies
+# mints a credential that lasts minutes; npm attaches provenance on its own
+# for public repositories. The build job installs dependencies
 # but cannot mint one; the publish job can, but never installs anything, so no
 # dependency's install script ever runs next to a credential.
 name: Publish
@@ -115,6 +116,6 @@ jobs:
           npm --version
           while IFS="$(printf '\t')" read -r file name version tag; do
             echo "::group::$name@$version"
-            npm publish --ignore-scripts --provenance --access public --tag "$tag" "./$file"
+            npm publish --ignore-scripts --access public --tag "$tag" "./$file"
             echo "::endgroup::"
           done < plan.tsv
