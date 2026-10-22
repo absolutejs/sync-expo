@@ -1,5 +1,17 @@
 {
 	"contract": 1,
 	"name": "@absolutejs/sync-expo",
-	"releases": []
+	"releases": [
+		{
+			"changes": [
+				{
+					"detail": "The `@absolutejs/sync` peer range stopped below 3. sync 3.0.0 changed no API (it only requires Elysia 2.0.0-rc.0), so the range now runs from 2.31.0 below 4.",
+					"kind": "changed",
+					"summary": "Accepts @absolutejs/sync 3"
+				}
+			],
+			"date": "2026-10-22",
+			"version": "0.0.5"
+		}
+	]
 }
