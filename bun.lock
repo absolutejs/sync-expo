@@ -9,7 +9,7 @@
       },
       "devDependencies": {
         "@absolutejs/changelog": "^0.6.0",
-        "@absolutejs/sync": "2.31.0",
+        "@absolutejs/sync": "3.0.0",
         "@types/bun": "1.3.14",
         "@types/react": "19.2.2",
         "expo": "57.0.9",
@@ -25,7 +25,7 @@
         "typescript": "5.9.3",
       },
       "peerDependencies": {
-        "@absolutejs/sync": ">=2.31.0 <3",
+        "@absolutejs/sync": ">=2.31.0 <4",
         "expo-background-task": ">=57 <58",
         "expo-crypto": ">=57 <58",
         "expo-network": ">=57 <58",
@@ -43,7 +43,7 @@
 
     "@absolutejs/manifest": ["@absolutejs/manifest@0.9.0", "", { "peerDependencies": { "@sinclair/typebox": ">=0.34.0 <0.35.0" }, "bin": { "absolute-manifest": "dist/cli.js" } }, "sha512-naNDdwNoWQgJ3HuFbAu1UcOVR7SGpLBJz/seO8MMX32vrxk6esgzY7OB1CL8YDOegtI/EqQfcvnulnP66A9aGg=="],
 
-    "@absolutejs/sync": ["@absolutejs/sync@2.31.0", "", { "dependencies": { "@absolutejs/manifest": "^0.9.0", "@absolutejs/telemetry": ">=0.2.0 <0.4.0", "@sinclair/typebox": "^0.34.0" }, "peerDependencies": { "@absolutejs/isolated-jsc": ">=0.12.2 <0.13.0", "@angular/core": ">=21.2.18 <22", "@elysia/cron": "^2.0.0-beta.1", "@modelcontextprotocol/sdk": ">=1.29.0 <2", "@tanstack/db": ">=0.6.16 <0.7", "drizzle-orm": ">=1.0.0-rc.4 <2", "elysia": "^2.0.0-beta.6", "react": ">=19.2.8 <20", "svelte": ">=5.56.7 <6", "vue": ">=3.5.40 <4" }, "optionalPeers": ["@absolutejs/isolated-jsc", "@angular/core", "@elysia/cron", "@modelcontextprotocol/sdk", "@tanstack/db", "drizzle-orm", "elysia", "react", "svelte", "vue"] }, "sha512-ROLIOiBqsV0ZVEpn9Tzjodw7YrjFlmh0Zapd1fM0HBvI4IfM1SFOs4Y5MAVNOpSC2aC64SJlUifNd3c8ZLzUUg=="],
+    "@absolutejs/sync": ["@absolutejs/sync@3.0.0", "", { "dependencies": { "@absolutejs/manifest": "^0.9.0", "@absolutejs/telemetry": ">=0.2.0 <0.4.0", "@sinclair/typebox": "^0.34.0" }, "peerDependencies": { "@absolutejs/isolated-jsc": ">=0.12.2 <0.13.0", "@angular/core": ">=21.2.18 <22", "@elysia/cron": "^2.0.0-rc.0", "@modelcontextprotocol/sdk": ">=1.29.0 <2", "@tanstack/db": ">=0.6.16 <0.7", "drizzle-orm": ">=1.0.0-rc.4 <2", "elysia": "^2.0.0-rc.0", "react": ">=19.2.8 <20", "svelte": ">=5.56.7 <6", "vue": ">=3.5.40 <4" }, "optionalPeers": ["@absolutejs/isolated-jsc", "@angular/core", "@elysia/cron", "@modelcontextprotocol/sdk", "@tanstack/db", "drizzle-orm", "elysia", "react", "svelte", "vue"] }, "sha512-mBIUUICEDTqsg9lTq0BHpk113YGeIvJnAEHBAcRt0X8h2M9fnQgkcfbzGDWNk8t2i6T6kxmvrfzSFJz1+kBwlw=="],
 
     "@absolutejs/telemetry": ["@absolutejs/telemetry@0.3.1", "", { "dependencies": { "@absolutejs/handoff": "0.1.0" }, "peerDependencies": { "drizzle-orm": ">=1.0.0-rc.4 <2" }, "optionalPeers": ["drizzle-orm"] }, "sha512-Apd/FfS1BbDyeMDwoWsSx8ql5MeLjLY7MQn0yAHz1T1wxqpnQgFTdYKbvqcfAJ6/hpQLTHw4EY/QkihwtQuPjQ=="],
 
